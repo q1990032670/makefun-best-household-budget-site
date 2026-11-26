@@ -1,0 +1,146 @@
+/* style.css — Hearth & Ledger visual design.
+   One job: the whole look — warm paper-and-pine palette, cards, tables,
+   envelope bars, calendar grid, and the phone layout. */
+
+:root {
+  --pine: #2f6f4e;
+  --pine-dark: #1e4633;
+  --paper: #faf6ee;
+  --card: #ffffff;
+  --ink: #26312b;
+  --muted: #6b756e;
+  --line: #e3dac7;
+  --amber: #e9c46a;
+  --rust: #e76f51;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.site-head {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+  padding: 20px 28px 8px;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-mark {
+  background: var(--pine); color: #fff; font-weight: bold; font-size: 20px;
+  padding: 10px 12px; border-radius: 10px; letter-spacing: 1px;
+}
+.brand h1 { margin: 0; font-size: 30px; color: var(--pine-dark); }
+.tagline { margin: 0; color: var(--muted); font-style: italic; }
+.head-note { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 15px; }
+
+.site-nav {
+  display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 28px;
+  border-bottom: 3px solid var(--pine); position: sticky; top: 0; background: var(--paper); z-index: 5;
+}
+.nav-link {
+  color: var(--pine-dark); text-decoration: none; padding: 8px 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); font-size: 16px;
+}
+.nav-link.active { background: var(--pine); color: #fff; border-color: var(--pine); }
+
+main { max-width: 1120px; margin: 0 auto; padding: 22px 20px 40px; }
+
+.hero { background: var(--pine-dark); color: #f3efe4; border-radius: var(--radius); padding: 22px 26px; margin-bottom: 18px; }
+.hero h2 { margin: 0 0 6px; font-size: 26px; }
+.hero p { margin: 0; max-width: 70ch; }
+
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+.card h3 { margin: 0 0 4px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.card .big { margin: 0; font-size: 30px; font-weight: bold; color: var(--pine-dark); }
+.card.accent { background: #fdf3d8; border-color: var(--amber); }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; margin-bottom: 18px; }
+.grid2 .panel { margin-bottom: 0; }
+.panel h2 { margin-top: 0; color: var(--pine-dark); }
+.panel h3 { color: var(--pine-dark); }
+.muted { color: var(--muted); }
+a { color: var(--pine); }
+
+.chart-flex { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.legend { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.legend li { margin: 3px 0; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.donut-total { font-size: 19px; font-weight: bold; fill: var(--pine-dark); }
+.donut-sub { font-size: 11px; fill: var(--muted); }
+.trend-svg { width: 100%; height: auto; }
+.axis-label { font-size: 12px; fill: var(--muted); }
+.chart-key { font-size: 14px; margin: 6px 0 0; }
+
+.bill-mini { list-style: none; margin: 0; padding: 0; }
+.bill-mini li { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+.neg { color: var(--rust); }
+.pos { color: var(--pine); }
+
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+th { color: var(--pine-dark); border-bottom: 2px solid var(--pine); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.chip { border: 2px solid var(--line); border-radius: 999px; padding: 1px 9px; font-size: 13px; white-space: nowrap; }
+.row-actions { white-space: nowrap; }
+.row-actions button { margin-right: 4px; }
+
+button { font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--paper); border-radius: 8px; padding: 7px 14px; }
+button.primary { background: var(--pine); color: #fff; border-color: var(--pine); }
+button.danger { background: #fdecea; border-color: var(--rust); color: #9c3a22; }
+.hidden { display: none; }
+
+.tx-form, .filter-row, .calc-form, .goal-add { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin: 12px 0; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--muted); }
+label.grow { flex: 1; min-width: 180px; }
+input, select { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); }
+
+.envelopes, .goals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.envelope, .goal { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; background: #fffdf8; }
+.envelope header { display: flex; align-items: center; gap: 4px; }
+.envelope h3, .goal h3 { margin: 0; font-size: 18px; color: var(--pine-dark); }
+.env-status { margin-left: auto; font-size: 13px; color: var(--muted); }
+.env-nums { margin: 8px 0; font-size: 17px; }
+.env-edit { margin-top: 10px; }
+.env-edit input { width: 110px; }
+.bar-track { background: #efe8d6; border-radius: 999px; height: 14px; overflow: hidden; }
+.bar { height: 100%; border-radius: 999px; }
+.bar.ok { background: var(--pine); }
+.bar.warn { background: var(--amber); }
+.bar.over { background: var(--rust); }
+.bar.goal-bar { background: var(--pine); }
+
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-bottom: 18px; }
+.cal-day { border: 1px solid var(--line); border-radius: 8px; min-height: 74px; padding: 5px 6px; background: #fffdf8; }
+.cal-day.today { border: 2px solid var(--pine); background: #eef6f0; }
+.cal-num { font-weight: bold; font-size: 13px; color: var(--muted); display: block; }
+.cal-bill { display: block; font-size: 11px; background: #fdf3d8; border-radius: 4px; padding: 1px 4px; margin-top: 3px; }
+
+.calc-big { font-size: 20px; }
+.warn-text { color: #9c3a22; font-weight: bold; }
+.rules-list li { margin: 8px 0; }
+
+.site-foot { max-width: 1120px; margin: 0 auto; padding: 0 20px 30px; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 760px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+  .grid2 { grid-template-columns: 1fr; }
+  .envelopes, .goals { grid-template-columns: 1fr; }
+  .site-head { padding: 14px 16px 4px; }
+  .site-nav { padding: 10px 12px; overflow-x: auto; flex-wrap: nowrap; }
+  .nav-link { white-space: nowrap; padding: 7px 12px; font-size: 15px; }
+  main { padding: 14px 12px 30px; }
+  .brand h1 { font-size: 24px; }
+  .card .big { font-size: 24px; }
+  .cal-grid { grid-template-columns: repeat(7, 1fr); gap: 3px; }
+  .cal-day { min-height: 52px; padding: 3px; }
+  .cal-bill { font-size: 9px; }
+  .head-note { border-radius: 12px; }
+}
